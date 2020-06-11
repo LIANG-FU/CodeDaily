@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Object.myCreate = function (proto, properties) {
+        function Fn() {}
+
+        Fn.prototype = proto;
+
+        let resObj = new Fn();
+
+        if (properties) {
+          Object.defineProperties(resObj, properties);
+        }
+
+        return resObj
+      };
+
+      var hh = Object.myCreate({ a: 11 }, { mm: { value: 10 } });
+      let hh2 = Object.create({ a: 11 }, { mm: { value: 10 } })
+      console.log(hh);
+      console.log(hh2)
+    </script>
+  </body>
+</html>
